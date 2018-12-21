@@ -71,7 +71,7 @@ public class PLAFEditorPanel extends CPanel {
 	private static final long serialVersionUID = 3991197818429424319L;
 
 	/**	Logger			*/
-	private static Logger log = Logger.getLogger(PLAFEditor.class.getName());
+	private static Logger log = Logger.getLogger(PLAFEditorPanel.class.getName());
 	
 	static ResourceBundle   s_res = ResourceBundle.getBundle("org.compiere.plaf.PlafRes");
 	static Object[]         s_columns = new Object[] {"-0-", "-1-"};

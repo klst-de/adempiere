@@ -39,6 +39,7 @@ import javax.swing.JCheckBox;
 import javax.swing.JComboBox;
 import javax.swing.JDialog;
 import javax.swing.JEditorPane;
+import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JList;
 import javax.swing.JOptionPane;
@@ -84,11 +85,28 @@ import sun.awt.AppContext;
  *  @version    $Id: AdempierePLAFEditor.java,v 1.3 2006/07/30 00:52:24 jjanke Exp $
  */
 public class PLAFEditor extends JDialog
-	implements ActionListener
-{
-	/**
-	 * 
-	 */
+	implements ActionListener {
+	
+	public static void main(String[] args) {
+        //Schedule a job for the event-dispatching thread:
+        //creating and showing this application's GUI.
+		javax.swing.SwingUtilities.invokeLater(new Runnable() {
+			public void run() {
+				// Create and set up the windows
+				JFrame frame = new JFrame(log.getName());
+				frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+				frame.getContentPane().add(new PLAFEditorPanel());
+				frame.pack();
+				frame.setVisible(true);
+
+				JDialog jDialog = new PLAFEditor(true); // boolean showExample
+				// Display the dialog window:
+				jDialog.pack();
+				jDialog.setVisible(true);
+			}
+		});
+	}
+	
 	private static final long serialVersionUID = -6010229234801706748L;
 
 

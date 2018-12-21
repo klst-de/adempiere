@@ -665,10 +665,10 @@ public final class AdempierePLAF
 	public static void main (String[] args)
 	{
 		String jVersion = System.getProperty("java.version");
-		if (!(jVersion.startsWith("1.5")))
+		if (!(jVersion.startsWith("1.8")))
 		{
 			JOptionPane.showMessageDialog (null,
-				"Require Java Version 1.5 or up - Not " + jVersion,
+				"Require Java Version 1.8 or up - Not " + jVersion,
 				"AdempierePLAF - Version Conflict",
 				JOptionPane.ERROR_MESSAGE);
 			System.exit(1);
@@ -677,13 +677,13 @@ public final class AdempierePLAF
 		//  set the defined PLAF
 		Ini.loadProperties (true);
 		setPLAF ();
-		//
-		if (args.length == 0)
-		{
-			return;
+		String className = "org.adempiere.plaf.PLAFEditor";
+		if (args.length == 0) {
+			log.info("no args ... trying "+className);
+		} else {
+			className = args[0];			
 		}
 
-		String className = args[0];
 		//  find class
 		Class<?> startClass = null;
 		try
@@ -705,7 +705,7 @@ public final class AdempierePLAF
 			{
 				if (Modifier.isStatic(methods[i].getModifiers()) && methods[i].getName().equals("main"))
 				{
-					String[] startArgs = new String[args.length-1];
+					String[] startArgs = new String[(args.length>0 ? args.length-1 : 0)];
 					for (int ii = 1; ii < args.length; ii++)
 						startArgs[ii-i] = args[ii];
 					methods[i].invoke(null, new Object[] {startArgs});

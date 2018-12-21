@@ -46,6 +46,7 @@ import javax.naming.NamingException;
 
 import org.adempiere.plaf.AdempiereLookAndFeel;
 import org.adempiere.plaf.AdempiereThemeInnova;
+import org.adempiere.plaf.PLAFEditorPanel;
 import org.compiere.model.ModelValidationEngine;
 
 /**
@@ -234,7 +235,7 @@ public final class Ini implements Serializable
 	private static String s_propertyFileName = null;
 	
 	/**	Logger						*/
-	private static Logger			log = null;
+	private static Logger			log = Logger.getLogger(Ini.class.getName());
 
 	/**
 	 *	Save INI parameters to disk
