@@ -28,6 +28,8 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.ResourceBundle;
+import java.util.function.BiConsumer;
+import java.util.function.Consumer;
 import java.util.logging.Logger;
 
 import javax.swing.ImageIcon;
@@ -390,7 +392,7 @@ public final class AdempierePLAF
 		s_plasticThemes = new ValueNamePair[plasticThemes.size()];
 		plasticThemes.toArray(s_plasticThemes);
 		//
-	//	printPLAFDefaults();
+		printPLAFDefaults();
 	}   //  static Initializer
 
 
@@ -534,7 +536,7 @@ public final class AdempierePLAF
 			log.severe(e.getMessage());
 		}
 		log.config(plaf + " - " + theme);
-	//	printPLAFDefaults();
+		printPLAFDefaults();
 	}   //  setPLAF
 
 	/**
@@ -567,26 +569,45 @@ public final class AdempierePLAF
 		AdempierePLAF.setPLAF ();
 	}  //  reset
 
+//	static BiConsumer<Object,Object> printConsumer = new BiConsumer<Object,Object>() {
+//		private int i=0;
+//	    public void accept(Object key, Object value) {
+////	        System.out.println(name);
+//	        System.out.println("key "+i + ":"+key.toString() + " = "+ value.toString());
+//	        i++;
+//	    }
+//	};
 	/**
 	 *  Print current UIDefaults
 	 */
 	public static void printPLAFDefaults ()
-	{
-		System.out.println(UIManager.getLookAndFeel());
-		Object[] keys = UIManager.getLookAndFeelDefaults().keySet().toArray();
-		Arrays.sort(keys);
-		char lastStart = ' ';
-		for (int i = 0; i < keys.length; i++)
-		{
-			StringBuffer sb = new StringBuffer();
-			sb.append(keys[i]).append(" = ").append(UIManager.get(keys[i]));
-			if (keys[i].toString().charAt(0) != lastStart)
-			{
-				System.out.println();
-				lastStart = keys[i].toString().charAt(0);
-			}
-			System.out.println(sb);
-		}
+	{	log.info(UIManager.getLookAndFeel().toString() + " #keys="+UIManager.getLookAndFeelDefaults().keySet().size());
+		
+//		UIManager.getLookAndFeelDefaults().forEach( (key, value) -> { 
+//			System.out.println(key.toString() + " = "+ value.toString());
+//		});
+				
+//		System.out.println(UIManager.getLookAndFeel());
+//		Object[] keys = UIManager.getLookAndFeelDefaults().keySet().toArray();
+//		log.info("#keys="+keys.length);
+//		for (int i = 0; i < keys.length; i++) {
+////			log.info("key "+i + ":"+keys[i].toString() + " = "+ UIManager.get(keys[i]));
+//			System.out.println("key "+i + ":"+keys[i].toString() + " = "+ UIManager.get(keys[i]));
+//		}
+		
+//		Arrays.sort(keys);
+//		char lastStart = ' ';
+//		for (int i = 0; i < keys.length; i++)
+//		{
+//			StringBuffer sb = new StringBuffer();
+//			sb.append(keys[i]).append(" = ").append(UIManager.get(keys[i]));
+//			if (keys[i].toString().charAt(0) != lastStart)
+//			{
+//				System.out.println();
+//				lastStart = keys[i].toString().charAt(0);
+//			}
+//			System.out.println(sb);
+//		}
 	}   //  printPLAFDefaults
 
 	/**

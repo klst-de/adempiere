@@ -61,6 +61,7 @@ import javax.swing.plaf.metal.MetalTheme;
 
 import org.compiere.plaf.CompiereColor;
 import org.compiere.plaf.CompiereLookAndFeel;
+import org.compiere.plaf.CompiereThemeEditor;
 import org.compiere.swing.CButton;
 import org.compiere.swing.CCheckBox;
 import org.compiere.swing.CComboBox;
@@ -103,6 +104,11 @@ public class PLAFEditor extends JDialog
 				// Display the dialog window:
 				jDialog.pack();
 				jDialog.setVisible(true);
+
+				JDialog compiereThemeEditor = new CompiereThemeEditor(jDialog); // boolean showExample
+				// Display the compiereThemeEditor:
+				compiereThemeEditor.pack();
+				compiereThemeEditor.setVisible(true);
 			}
 		});
 	}
