@@ -12,7 +12,7 @@
 <listEntry value="org.eclipse.debug.ui.launchGroup.run"/>
 </listAttribute>
 <stringAttribute key="org.eclipse.jdt.launching.MAIN_TYPE" value="org.adempiere.util.ModelInterfaceGenerator"/>
-<stringAttribute key="org.eclipse.jdt.launching.PROGRAM_ARGUMENTS" value="${workspace_loc:base}/src/org/compiere/model/&#13;&#10;org.compiere.model&#13;&#10;&quot;'D', 'U', 'A', 'C'&quot;"/>
+<stringAttribute key="org.eclipse.jdt.launching.PROGRAM_ARGUMENTS" value="${workspace_loc:base}/src/org/compiere/model/&#13;&#10;org.compiere.model&#13;&#10;&quot;'D', 'U', 'A', 'C'&quot;&#13;&#10;'C_Bank'"/>
 <stringAttribute key="org.eclipse.jdt.launching.PROJECT_ATTR" value="adempiere"/>
-<stringAttribute key="org.eclipse.jdt.launching.VM_ARGUMENTS" value="-DPropertyFile=${workspace_loc}/adempiere/Adempiere/Adempiere.properties"/>
+<stringAttribute key="org.eclipse.jdt.launching.VM_ARGUMENTS" value="-DPropertyFile=${workspace_loc}/AD39X.home/Adempiere.properties"/>
 </launchConfiguration>
